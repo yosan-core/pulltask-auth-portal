@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "@services/register";
-import { RegisterRequest } from "@types/auth";
+import { RegisterRequest } from "@domain/auth";
 
 export function useRegister() {
   const [isLoading, setIsLoading] = useState(false);

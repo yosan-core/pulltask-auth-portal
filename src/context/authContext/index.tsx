@@ -5,7 +5,7 @@ import {
   useCallback,
   ReactNode,
 } from "react";
-import { AuthUser } from "@types/auth";
+import { AuthUser } from "@domain/auth";
 
 const TOKEN_KEY = "pulltask_token";
 const USER_KEY = "pulltask_user";

@@ -18,11 +18,11 @@ interface FieldProps {
 }
 
 const fields: FieldProps[] = [
-  { id: "names",          label: "Nombre(s)",          placeholder: "Juan Carlos" },
-  { id: "surnames",       label: "Apellido(s)",         placeholder: "García López" },
-  { id: "email",          label: "Correo electrónico",  type: "email",    placeholder: "tu@correo.com",                       autoComplete: "email" },
+  { id: "names",          label: "Nombre(s)",          placeholder: "Yohan" },
+  { id: "surnames",       label: "Apellido(s)",         placeholder: "Cardona Montero" },
+  { id: "email",          label: "Correo electrónico",  type: "email",    placeholder: "example@gmail.com",                       autoComplete: "email" },
   { id: "password",       label: "Contraseña",          type: "password", placeholder: "Mín. 8 chars, 1 mayúscula, 1 número", autoComplete: "new-password" },
-  { id: "accountName",    label: "Nombre de usuario",   placeholder: "jcgarcia" },
+  { id: "accountName",    label: "Nombre de usuario",   placeholder: "ycardona" },
   { id: "organizationId", label: "ID de organización",  placeholder: "UUID de tu organización" },
 ];
 

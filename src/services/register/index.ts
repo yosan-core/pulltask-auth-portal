@@ -1,5 +1,5 @@
 import { authProcessInstance } from "@api/authProcessInstance";
-import { RegisterRequest, RegisterResponse } from "@types/auth";
+import { RegisterRequest, RegisterResponse } from "@domain/auth";
 
 const register = async (request: RegisterRequest): Promise<RegisterResponse> => {
   const { data, status } = await authProcessInstance.post<RegisterResponse>(

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "@services/login";
 import { useAuthContext } from "@context/authContext";
-import { LoginRequest } from "@types/auth";
+import { LoginRequest } from "@domain/auth";
 
 export function useLogin() {
   const [isLoading, setIsLoading] = useState(false);

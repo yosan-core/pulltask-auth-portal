@@ -1,15 +1,15 @@
 export interface LoginRequest {
-  userAccount: string;
+  userAccount:              string;
   authenticationCredential: string;
-  callbackUrl: string;
+  codeChallenge:            string;
+  callbackUrl:              string;
+  state:                    string;
 }
 
 export interface LoginResponse {
-  token: string;
-  expiresAt: string;
-  userAccountId: string;
-  userAccountRole: string;
-  callbackUrl: string;
+  authenticationCode: string;
+  callbackUrl:        string;
+  state:              string;
 }
 
 export interface RegisterRequest {

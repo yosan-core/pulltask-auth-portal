@@ -1,5 +1,5 @@
 import { UseFormReturn, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { RegisterFormValues } from "./index";
 
 interface RegisterUIProps {
@@ -27,6 +27,7 @@ const fields: FieldProps[] = [
 ];
 
 export function RegisterUI({ form, onSubmit, isLoading, serverError }: RegisterUIProps) {
+  const { search } = useLocation();
   const {
     register,
     handleSubmit,
@@ -46,7 +47,7 @@ export function RegisterUI({ form, onSubmit, isLoading, serverError }: RegisterU
         <p className="mt-1 text-sm text-slate-500">
           ¿Ya tienes cuenta?{" "}
           <Link
-            to="/login"
+            to={`/login${search}`}
             className="text-brand-500 font-medium hover:text-brand-600 hover:underline"
           >
             Inicia sesión

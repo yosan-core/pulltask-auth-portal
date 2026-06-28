@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  server: { port: 5173, strictPort: true },
   resolve: {
     alias: {
       "@src":        fileURLToPath(new URL("./src",           import.meta.url)),
@@ -15,7 +16,7 @@ export default defineConfig({
       "@hooks":      fileURLToPath(new URL("./src/hooks",     import.meta.url)),
       "@pages":      fileURLToPath(new URL("./src/pages",     import.meta.url)),
       "@services":   fileURLToPath(new URL("./src/services",  import.meta.url)),
-      "@types":      fileURLToPath(new URL("./src/types",     import.meta.url)),
+      "@domain":     fileURLToPath(new URL("./src/types",     import.meta.url)),
     },
   },
 });

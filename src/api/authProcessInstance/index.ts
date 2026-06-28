@@ -5,7 +5,8 @@ const authProcessInstance: AxiosInstance = axios.create({
   baseURL: environment.AUTH_API_URL,
   timeout: fetchTimeoutMs,
   headers: {
-    "Content-Type": "application/json",
+    "Content-Type":   "application/json",
+    "X-Business-Unit": environment.BUSINESS_UNIT,
   },
 });
 

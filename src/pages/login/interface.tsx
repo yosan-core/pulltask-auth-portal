@@ -1,5 +1,5 @@
 import { UseFormReturn, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface LoginFormValues {
   userAccount: string;
@@ -14,6 +14,7 @@ interface LoginUIProps {
 }
 
 export function LoginUI({ form, onSubmit, isLoading, serverError }: LoginUIProps) {
+  const { search } = useLocation();
   const {
     register,
     handleSubmit,
@@ -33,7 +34,7 @@ export function LoginUI({ form, onSubmit, isLoading, serverError }: LoginUIProps
         <p className="mt-1 text-sm text-slate-500">
           ¿No tienes cuenta?{" "}
           <Link
-            to="/register"
+            to={`/register${search}`}
             className="text-brand-500 font-medium hover:text-brand-600 hover:underline"
           >
             Regístrate
@@ -53,7 +54,7 @@ export function LoginUI({ form, onSubmit, isLoading, serverError }: LoginUIProps
             id="userAccount"
             type="email"
             autoComplete="email"
-            placeholder="tu@correo.com"
+            placeholder="example@gmail.com"
             {...register("userAccount")}
             disabled={isLoading}
             className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm

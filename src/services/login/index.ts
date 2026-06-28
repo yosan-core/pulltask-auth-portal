@@ -1,5 +1,5 @@
 import { authProcessInstance } from "@api/authProcessInstance";
-import { LoginRequest, LoginResponse } from "@types/auth";
+import { LoginRequest, LoginResponse } from "@domain/auth";
 
 const login = async (request: LoginRequest): Promise<LoginResponse> => {
   const { data, status } = await authProcessInstance.post<LoginResponse>(

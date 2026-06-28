@@ -1,5 +1,5 @@
 import { UseFormReturn, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { RegisterFormValues } from "./index";
 
 interface RegisterUIProps {
@@ -18,15 +18,16 @@ interface FieldProps {
 }
 
 const fields: FieldProps[] = [
-  { id: "names",          label: "Nombre(s)",          placeholder: "Juan Carlos" },
-  { id: "surnames",       label: "Apellido(s)",         placeholder: "García López" },
-  { id: "email",          label: "Correo electrónico",  type: "email",    placeholder: "tu@correo.com",                       autoComplete: "email" },
+  { id: "names",          label: "Nombre(s)",          placeholder: "Yohan" },
+  { id: "surnames",       label: "Apellido(s)",         placeholder: "Cardona Montero" },
+  { id: "email",          label: "Correo electrónico",  type: "email",    placeholder: "example@gmail.com",                       autoComplete: "email" },
   { id: "password",       label: "Contraseña",          type: "password", placeholder: "Mín. 8 chars, 1 mayúscula, 1 número", autoComplete: "new-password" },
-  { id: "accountName",    label: "Nombre de usuario",   placeholder: "jcgarcia" },
+  { id: "accountName",    label: "Nombre de usuario",   placeholder: "ycardona" },
   { id: "organizationId", label: "ID de organización",  placeholder: "UUID de tu organización" },
 ];
 
 export function RegisterUI({ form, onSubmit, isLoading, serverError }: RegisterUIProps) {
+  const { search } = useLocation();
   const {
     register,
     handleSubmit,
@@ -46,7 +47,7 @@ export function RegisterUI({ form, onSubmit, isLoading, serverError }: RegisterU
         <p className="mt-1 text-sm text-slate-500">
           ¿Ya tienes cuenta?{" "}
           <Link
-            to="/login"
+            to={`/login${search}`}
             className="text-brand-500 font-medium hover:text-brand-600 hover:underline"
           >
             Inicia sesión

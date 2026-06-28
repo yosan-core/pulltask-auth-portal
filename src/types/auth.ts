@@ -1,6 +1,7 @@
 export interface LoginRequest {
   userAccount: string;
   authenticationCredential: string;
+  callbackUrl: string;
 }
 
 export interface LoginResponse {
@@ -8,6 +9,7 @@ export interface LoginResponse {
   expiresAt: string;
   userAccountId: string;
   userAccountRole: string;
+  callbackUrl: string;
 }
 
 export interface RegisterRequest {

@@ -1,27 +1,29 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { login } from "@services/login";
 import { useAuthContext } from "@context/authContext";
-import { LoginRequest } from "@domain/auth";
+import { environment } from "@config/environment";
+import type { LoginRequest } from "@domain/auth";
 
 export function useLogin() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { signIn } = useAuthContext();
-  const navigate = useNavigate();
 
-  const handleLogin = async (request: LoginRequest) => {
+  const handleLogin = async (request: Omit<LoginRequest, "callbackUrl">) => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await login(request);
+      const response = await login({
+        ...request,
+        callbackUrl: environment.KANBAN_PORTAL_URL,
+      });
       signIn({
         token: response.token,
         expiresAt: response.expiresAt,
         userAccountId: response.userAccountId,
         userAccountRole: response.userAccountRole,
       });
-      navigate("/");
+      window.location.href = response.callbackUrl;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Invalid credentials");
     } finally {

@@ -1,8 +1,8 @@
-import { authProcessInstance } from "@api/authProcessInstance";
+import { authPersistenceProcessInstance } from "@api/authPersistenceProcessInstance";
 import { LoginRequest, LoginResponse } from "@domain/auth";
 
 const login = async (request: LoginRequest): Promise<LoginResponse> => {
-  const { data, status } = await authProcessInstance.post<LoginResponse>(
+  const { data, status } = await authPersistenceProcessInstance.post<LoginResponse>(
     "/user-accounts/",
     request,
     { headers: { "X-Action": "AuthenticationByCredential" } },

@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from "axios";
 import { environment, fetchTimeoutMs } from "@config/environment";
 
-const authProcessInstance: AxiosInstance = axios.create({
-  baseURL: environment.AUTH_API_URL,
+const authPersistenceProcessInstance: AxiosInstance = axios.create({
+  baseURL: environment.AUTH_PERSISTENCE_API_URL,
   timeout: fetchTimeoutMs,
   headers: {
     "Content-Type":   "application/json",
@@ -10,7 +10,7 @@ const authProcessInstance: AxiosInstance = axios.create({
   },
 });
 
-authProcessInstance.interceptors.request.use((config) => {
+authPersistenceProcessInstance.interceptors.request.use((config) => {
   const token = localStorage.getItem("pulltask_token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
@@ -18,7 +18,7 @@ authProcessInstance.interceptors.request.use((config) => {
   return config;
 });
 
-authProcessInstance.interceptors.response.use(
+authPersistenceProcessInstance.interceptors.response.use(
   (response) => response,
   (error: unknown) => {
     if (axios.isAxiosError(error)) {
@@ -31,4 +31,4 @@ authProcessInstance.interceptors.response.use(
   },
 );
 
-export { authProcessInstance };
+export { authPersistenceProcessInstance };

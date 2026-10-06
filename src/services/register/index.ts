@@ -1,8 +1,8 @@
-import { authProcessInstance } from "@api/authProcessInstance";
+import { authPersistenceProcessInstance } from "@api/authPersistenceProcessInstance";
 import { RegisterRequest, RegisterResponse } from "@domain/auth";
 
 const register = async (request: RegisterRequest): Promise<RegisterResponse> => {
-  const { data, status } = await authProcessInstance.post<RegisterResponse>(
+  const { data, status } = await authPersistenceProcessInstance.post<RegisterResponse>(
     "/user-accounts/",
     request,
     { headers: { "X-Action": "RegisterUserAccount" } },

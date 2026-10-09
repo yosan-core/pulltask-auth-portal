@@ -19,11 +19,10 @@ interface FieldProps {
 
 const fields: FieldProps[] = [
   { id: "names",          label: "Nombre(s)",          placeholder: "Yohan" },
-  { id: "surnames",       label: "Apellido(s)",         placeholder: "Cardona Montero" },
+  { id: "surnames",       label: "Apellido(s)",         placeholder: "Cardona" },
   { id: "email",          label: "Correo electrónico",  type: "email",    placeholder: "example@gmail.com",                       autoComplete: "email" },
   { id: "password",       label: "Contraseña",          type: "password", placeholder: "Mín. 8 chars, 1 mayúscula, 1 número", autoComplete: "new-password" },
   { id: "accountName",    label: "Nombre de usuario",   placeholder: "ycardona" },
-  { id: "organizationId", label: "ID de organización",  placeholder: "UUID de tu organización" },
 ];
 
 export function RegisterUI({ form, onSubmit, isLoading, serverError }: RegisterUIProps) {

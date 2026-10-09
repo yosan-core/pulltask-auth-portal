@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRegister } from "@hooks/useRegister";
+import { environment } from "@config/environment";
 import { RegisterUI } from "./interface";
 
 const registerSchema = z.object({
@@ -14,7 +15,6 @@ const registerSchema = z.object({
     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
     .regex(/[0-9]/, "Password must contain at least one digit"),
   accountName: z.string().min(1, "Account name is required"),
-  organizationId: z.string().min(1, "Organization ID is required"),
 });
 
 export type RegisterFormValues = z.infer<typeof registerSchema>;
@@ -30,12 +30,11 @@ export function RegisterPage() {
       email: "",
       password: "",
       accountName: "",
-      organizationId: "",
     },
   });
 
   const onSubmit = (values: RegisterFormValues) => {
-    handleRegister(values);
+    handleRegister({ ...values, organizationId: environment.ORGANIZATION_ID });
   };
 
   return (

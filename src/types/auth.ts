@@ -18,7 +18,6 @@ export interface RegisterRequest {
   email: string;
   password: string;
   accountName: string;
-  organizationId: string;
   userAccountRole?: string;
 }
 

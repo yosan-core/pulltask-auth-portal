@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRegister } from "@hooks/useRegister";
-import { environment } from "@config/environment";
 import { RegisterUI } from "./interface";
 
 const registerSchema = z.object({
@@ -34,7 +33,7 @@ export function RegisterPage() {
   });
 
   const onSubmit = (values: RegisterFormValues) => {
-    handleRegister({ ...values, organizationId: environment.ORGANIZATION_ID });
+    handleRegister(values);
   };
 
   return (
